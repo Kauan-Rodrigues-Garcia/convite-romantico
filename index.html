@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite Especial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="media/romantic.webm" type="video/webm">
+    <source src="media/romantic.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
+  <div class="overlay">
+    <h1>Você aceita sair comigo?</h1>
+    <div class="buttons">
+      <button id="yes">Sim 💖</button>
+      <button id="no">Não 😢</button>
+    </div>
+    <button id="play-music">🎵 Música</button>
+  </div>
+
+  <div class="match-overlay" id="match">
+    <img src="media/you.jpg" class="photo left">
+    <img src="media/her.jpg" class="photo right">
+    <h2 class="match-text">MATCH ❤</h2>
+  </div>
+
+  <audio id="bg-music" src="media/music.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
