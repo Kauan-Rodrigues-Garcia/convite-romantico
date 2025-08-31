@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Convite Especial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video id="bgVideo" class="bg" playsinline muted loop preload="metadata" poster="">
+    <source src="assets/romantic.webm" type="video/webm">
+    <source src="assets/romantic.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
+  <div class="overlay"></div>
+
+  <main class="stage" role="main" aria-label="Convite">
+    <div class="card">
+      <h1 id="title">Você quer sair comigo?</h1>
+      <p class="lead">Escolha sua resposta — o <strong>Não</strong> é brincalhão.</p>
+
+      <div id="buttonsArea" class="buttonsArea" aria-label="Opções">
+        <button id="noBtn" class="btn no" aria-label="Não">Não ❌</button>
+        <button id="yesBtn" class="btn yes" aria-label="Sim">Sim 💖</button>
+      </div>
+
+      <div style="margin-top:18px">
+        <button id="musicToggle" class="musicBtn" aria-pressed="false">🎵 Tocar música</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- MATCH overlay -->
+  <div id="matchOverlay" class="matchOverlay" aria-hidden="true">
+    <div class="pics">
+      <img id="picYou" class="pic left" src="assets/you.jpg" alt="Você">
+      <img id="picHer" class="pic right" src="assets/her.jpg" alt="Ela">
+    </div>
+    <div class="matchText"><span class="word">MATCH</span> <span class="heart">❤</span></div>
+    <button id="closeMatch" class="btnClose">Fechar</button>
+  </div>
+
+  <audio id="bgMusic" preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

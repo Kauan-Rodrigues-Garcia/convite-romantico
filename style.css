@@ -1,0 +1,53 @@
+:root{
+  --accent:#ff4957;
+  --accent-2:#ff9a9e;
+  --text:#fff;
+  --glass: rgba(0,0,0,0.45);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:#000;color:var(--text)}
+.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-10;filter:contrast(.96) saturate(.98)}
+.overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.7));z-index:-5}
+
+.stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6vh 4vw}
+.card{width:min(900px,92vw);text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.04));padding:36px;border-radius:14px;backdrop-filter: blur(2px);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+h1{margin:0;font-size:clamp(30px,5.5vw,56px);color:var(--accent);text-shadow:0 10px 30px rgba(0,0,0,.6);font-weight:800}
+.lead{margin:8px 0 18px;color:rgba(255,255,255,.9);font-size:18px}
+
+/* Buttons */
+.buttonsArea{position:relative;width:min(640px,86%);height:120px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+.btn{appearance:none;border:none;padding:14px 26px;font-weight:800;border-radius:999px;font-size:18px;cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+.btn.yes{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 14px 40px rgba(255,80,90,.12)}
+.btn.no{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.04)}
+#noBtn{position:absolute;left:12%;top:50%;transform:translate(-50%,-50%)}
+
+/* music button */
+.musicBtn{margin-top:8px;background:rgba(0,0,0,.6);color:#fff;padding:10px 16px;border-radius:10px;border:none;cursor:pointer}
+
+/* match overlay */
+.matchOverlay{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.78);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
+.matchOverlay.open{opacity:1;pointer-events:auto}
+.pics{display:flex;gap:40px;align-items:center;justify-content:center}
+.pic{width:180px;height:180px;border-radius:50%;object-fit:cover;box-shadow:0 18px 40px rgba(0,0,0,.5);transform:translateX(0);transition:transform .8s cubic-bezier(.2,.9,.2,1)}
+.pic.left{transform:translateX(-120vw)}
+.pic.right{transform:translateX(120vw)}
+.pic.animate.left{transform:translateX(-18px) rotate(-8deg)}
+.pic.animate.right{transform:translateX(18px) rotate(8deg)}
+.pic.bump{animation:bump .36s ease}
+@keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.16)}100%{transform:scale(1)}}
+
+.matchText{margin-top:22px;font-weight:900;display:flex;gap:14px;align-items:center;opacity:0;transform:translateY(8px);transition:all .3s}
+.matchOverlay.showText .matchText{opacity:1;transform:translateY(0)}
+.matchText .word{font-size:clamp(28px,4.5vw,64px);background:linear-gradient(90deg,#fff,#ffd1dc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.matchText .heart{font-size:clamp(28px,4.5vw,64px);color:#ff3b7a;animation:beat 1s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+
+/* close */
+.btnClose{margin-top:20px;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.06);border:none;color:#fff;cursor:pointer}
+
+/* responsive */
+@media (max-width:640px){
+  .pic{width:120px;height:120px}
+  .buttonsArea{height:160px}
+  h1{font-size:28px}
+}
